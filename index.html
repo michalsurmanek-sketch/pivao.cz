@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PIVAO.cz – české pivo jinak</title>
+
+  <!-- Google Fonts (plná diakritika) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Roboto', 'ui-sans-serif', 'system-ui'] },
+          colors: {
+            pivao: {
+              gold: '#f59e0b', // amber-500
+              dark: '#0f172a', // slate-900
+              foam: '#fff7ed'  // orange-50
+            }
+          },
+          boxShadow: {
+            soft: '0 8px 30px rgba(0,0,0,0.08)'
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    .glass { backdrop-filter: saturate(180%) blur(10px); background: rgba(255,255,255,0.75); }
+  </style>
+</head>
+<body class="font-sans text-slate-900 bg-white">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 glass border-b border-slate-200/60">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-2xl bg-pivao-gold grid place-items-center text-white font-extrabold shadow-soft">P</div>
+        <div class="leading-tight">
+          <div class="font-black text-xl tracking-tight group-hover:opacity-90">PIVAO.cz</div>
+          <div class="text-xs text-slate-600 -mt-0.5">české pivo jinak</div>
+        </div>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-6 font-medium">
+        <a href="#proc" class="hover:text-pivao-gold">Proč PIVAO</a>
+        <a href="#pivovary" class="hover:text-pivao-gold">Pivovary</a>
+        <a href="#akce" class="hover:text-pivao-gold">Festivaly & akce</a>
+        <a href="#merch" class="hover:text-pivao-gold">Merch</a>
+        <a href="#kontakt" class="hover:text-pivao-gold">Kontakt</a>
+        <a href="#newsletter" class="inline-flex items-center gap-2 rounded-xl border border-pivao-gold/40 px-4 py-2 hover:bg-pivao-gold hover:text-white transition">Odběr novinek</a>
+      </nav>
+
+      <!-- Mobile hamburger -->
+      <button id="hamburgerBtn" aria-label="Otevřít menu" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl border border-slate-200">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+
+    <!-- Mobile menu overlay -->
+    <div id="mobileMenu" class="fixed inset-0 bg-white/95 backdrop-blur-sm z-40 hidden">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-2xl bg-pivao-gold grid place-items-center text-white font-extrabold">P</div>
+            <div class="font-black text-xl">PIVAO.cz</div>
+          </div>
+          <button id="closeMenuBtn" aria-label="Zavřít menu" class="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-slate-200">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+        <div class="mt-6 grid gap-3 text-lg">
+          <a data-close href="#proc" class="px-3 py-3 rounded-xl hover:bg-pivao-foam">Proč PIVAO</a>
+          <a data-close href="#pivovary" class="px-3 py-3 rounded-xl hover:bg-pivao-foam">Pivovary</a>
+          <a data-close href="#akce" class="px-3 py-3 rounded-xl hover:bg-pivao-foam">Festivaly & akce</a>
+          <a data-close href="#merch" class="px-3 py-3 rounded-xl hover:bg-pivao-foam">Merch</a>
+          <a data-close href="#kontakt" class="px-3 py-3 rounded-xl hover:bg-pivao-foam">Kontakt</a>
+          <a data-close href="#newsletter" class="mt-2 inline-flex items-center justify-center gap-2 rounded-xl border border-pivao-gold/40 px-4 py-3 hover:bg-pivao-gold hover:text-white transition">Odběr novinek</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="top" class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-pivao-foam to-white"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28 grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <div class="inline-flex items-center gap-2 rounded-full bg-white shadow-soft border border-slate-200 px-3 py-1 text-sm">
+          <span class="h-2 w-2 inline-block rounded-full bg-pivao-gold"></span>
+          Nová vlna českého piva
+        </div>
+        <h1 class="mt-4 text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900">
+          PIVAO <span class="text-pivao-gold">– české pivo jinak</span>
+        </h1>
+        <p class="mt-5 text-lg text-slate-600 max-w-xl">Platforma, která spojuje milovníky piva, české pivovary, festivaly a originální merch. Jeden brand. Jedna chuť. Spousta příběhů.</p>
+        <div class="mt-7 flex flex-wrap items-center gap-3">
+          <a href="#pivovary" class="inline-flex items-center gap-2 rounded-xl bg-pivao-gold text-white px-5 py-3 font-medium shadow-soft hover:opacity-95">
+            <i data-lucide="map-pin" class="w-5 h-5"></i>
+            Mapa pivovarů
+          </a>
+          <a href="#akce" class="inline-flex items-center gap-2 rounded-xl border border-slate-200 px-5 py-3 font-medium hover:border-pivao-gold">
+            <i data-lucide="calendar" class="w-5 h-5"></i>
+            Festivaly a akce
+          </a>
+          <a href="#merch" class="inline-flex items-center gap-2 rounded-xl border border-slate-200 px-5 py-3 font-medium hover:border-pivao-gold">
+            <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+            Merch (brzy)
+          </a>
+        </div>
+        <div class="mt-6 text-sm text-slate-500">Napojení: Reklamas.cz • StartAO.cz • DomenAO.cz</div>
+      </div>
+      <div class="relative">
+        <div class="aspect-[4/3] rounded-2xl border border-slate-200 bg-gradient-to-br from-white to-pivao-foam shadow-soft grid place-items-center">
+          <div class="text-center px-6">
+            <div class="text-7xl">🍺</div>
+            <p class="mt-3 font-semibold">Místo pro hero vizuál/ilustraci</p>
+            <p class="text-slate-500 text-sm">(maskot / půllitr / pěna / AO styl)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proč PIVAO -->
+  <section id="proc" class="py-16 lg:py-20 border-t border-slate-100 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-black tracking-tight">Proč <span class="text-pivao-gold">PIVAO</span>?</h2>
+      <p class="mt-3 text-slate-600 max-w-2xl">Spojujeme české pivní projekty do jednoho silného brandu. Pro fanoušky, pivovary i pořadatele akcí.</p>
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-6 rounded-2xl border border-slate-200 bg-white shadow-soft">
+          <i data-lucide="star" class="w-6 h-6"></i>
+          <h3 class="mt-3 font-bold">Silný brand</h3>
+          <p class="mt-1 text-slate-600 text-sm">Krátké jméno, zapamatovatelný název, moderní identita v AO stylu.</p>
+        </div>
+        <div class="p-6 rounded-2xl border border-slate-200 bg-white shadow-soft">
+          <i data-lucide="search" class="w-6 h-6"></i>
+          <h3 class="mt-3 font-bold">Objevuj & ochutnávej</h3>
+          <p class="mt-1 text-slate-600 text-sm">Mapa pivovarů, přehled stylů, recenze a doporučení.</p>
+        </div>
+        <div class="p-6 rounded-2xl border border-slate-200 bg-white shadow-soft">
+          <i data-lucide="calendar-days" class="w-6 h-6"></i>
+          <h3 class="mt-3 font-bold">Festivaly a akce</h3>
+          <p class="mt-1 text-slate-600 text-sm">Termíny, přihlášky, vstupenky, aftermovie – vše na jednom místě.</p>
+        </div>
+        <div class="p-6 rounded-2xl border border-slate-200 bg-white shadow-soft">
+          <i data-lucide="shield-check" class="w-6 h-6"></i>
+          <h3 class="mt-3 font-bold">Propojení s Reklamas</h3>
+          <p class="mt-1 text-slate-600 text-sm">Mobilní reklama, spolupráce značek, promo na eventech.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pivovary / mapa (placeholder) -->
+  <section id="pivovary" class="py-16 lg:py-20 bg-pivao-foam border-y border-slate-100">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between gap-6">
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-black tracking-tight">Pivovary v Česku</h2>
+          <p class="mt-2 text-slate-600 max-w-2xl">Brzy přidáme interaktivní mapu. Zatím si prohlédni výběr top podniků.</p>
+        </div>
+        <a href="#" class="hidden sm:inline-flex items-center gap-2 rounded-xl border border-slate-200 px-4 py-2 font-medium hover:border-pivao-gold">
+          <i data-lucide="list" class="w-5 h-5"></i> Zobrazit vše
+        </a>
+      </div>
+
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card -->
+        <article class="rounded-2xl border border-slate-200 bg-white shadow-soft overflow-hidden">
+          <div class="aspect-video bg-gradient-to-br from-white to-slate-100 grid place-items-center text-slate-400">Obrázek pivovaru</div>
+          <div class="p-5">
+            <h3 class="font-bold">Pivovar Vzorek</h3>
+            <p class="mt-1 text-sm text-slate-600">Praha • ležák, IPA, speciály</p>
+            <div class="mt-3 flex items-center gap-2 text-sm">
+              <i data-lucide="map-pin" class="w-4 h-4"></i>
+              <span>Praha 3</span>
+            </div>
+          </div>
+        </article>
+        <article class="rounded-2xl border border-slate-200 bg-white shadow-soft overflow-hidden">
+          <div class="aspect-video bg-gradient-to-br from-white to-slate-100 grid place-items-center text-slate-400">Obrázek pivovaru</div>
+          <div class="p-5">
+            <h3 class="font-bold">Moravský Pivovar</h3>
+            <p class="mt-1 text-sm text-slate-600">Brno • ležák 11°, ALE, NEIPA</p>
+            <div class="mt-3 flex items-center gap-2 text-sm">
+              <i data-lucide="map-pin" class="w-4 h-4"></i>
+              <span>Brno-střed</span>
+            </div>
+          </div>
+        </article>
+        <article class="rounded-2xl border border-slate-200 bg-white shadow-soft overflow-hidden">
+          <div class="aspect-video bg-gradient-to-br from-white to-slate-100 grid place-items-center text-slate-400">Obrázek pivovaru</div>
+          <div class="p-5">
+            <h3 class="font-bold">Zlínský Regent</h3>
+            <p class="mt-1 text-sm text-slate-600">Zlín • hořké speciály, sezónní várky</p>
+            <div class="mt-3 flex items-center gap-2 text-sm">
+              <i data-lucide="map-pin" class="w-4 h-4"></i>
+              <span>Zlín</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="mt-8 aspect-[3/1] rounded-2xl border border-dashed border-slate-300 grid place-items-center text-slate-500">
+        Interaktivní mapa (Leaflet/Mapy.cz) – doplníme
+      </div>
+    </div>
+  </section>
+
+  <!-- Akce / festivaly -->
+  <section id="akce" class="py-16 lg:py-20 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between gap-6">
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-black tracking-tight">Festivaly & akce</h2>
+          <p class="mt-2 text-slate-600">Nejbližší degustace, slavnosti a pivní tour po celé ČR.</p>
+        </div>
+        <a href="#" class="hidden sm:inline-flex items-center gap-2 rounded-xl border border-slate-200 px-4 py-2 font-medium hover:border-pivao-gold">
+          <i data-lucide="ticket" class="w-5 h-5"></i> Kalendář akcí
+        </a>
+      </div>
+
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl border border-slate-200 bg-white shadow-soft">
+          <div class="text-sm text-slate-500">Listopad</div>
+          <h3 class="mt-1 font-bold">Pivní slavnosti – Brno</h3>
+          <p class="mt-1 text-sm text-slate-600">Degustace 40+ piv, živá hudba, street food.</p>
+          <div class="mt-3 flex items-center gap-2 text-sm">
+            <i data-lucide="map-pin" class="w-4 h-4"></i>
+            Brněnské výstaviště
+          </div>
+        </div>
+        <div class="p-6 rounded-2xl border border-slate-200 bg-white shadow-soft">
+          <div class="text-sm text-slate-500">Prosinec</div>
+          <h3 class="mt-1 font-bold">Zimní pivní speciály – Praha</h3>
+          <p class="mt-1 text-sm text-slate-600">Limitky a vánoční várky z českých minipivovarů.</p>
+          <div class="mt-3 flex items-center gap-2 text-sm">
+            <i data-lucide="map-pin" class="w-4 h-4"></i>
+            Holešovice – tržnice
+          </div>
+        </div>
+        <div class="p-6 rounded-2xl border border-slate-200 bg-white shadow-soft">
+          <div class="text-sm text-slate-500">Leden</div>
+          <h3 class="mt-1 font-bold">IPA Meet-up – Ostrava</h3>
+          <p class="mt-1 text-sm text-slate-600">Workshop chmelení, kvasnice a moderní styly.</p>
+          <div class="mt-3 flex items-center gap-2 text-sm">
+            <i data-lucide="map-pin" class="w-4 h-4"></i>
+            Dolní Vítkovice
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Merch teaser -->
+  <section id="merch" class="py-16 lg:py-20 bg-gradient-to-b from-white to-pivao-foam border-t border-slate-100">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-black tracking-tight">Merch & dárky pro milovníky piva</h2>
+          <p class="mt-3 text-slate-600">Sklenice, otvíráky, sudy, trička a dárkové sety. Limitované edice PIVAO.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#" class="inline-flex items-center gap-2 rounded-xl bg-pivao-gold text-white px-5 py-3 font-medium shadow-soft hover:opacity-95">
+              <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+              Otevřít katalog (brzy)
+            </a>
+            <a href="#kontakt" class="inline-flex items-center gap-2 rounded-xl border border-slate-200 px-5 py-3 font-medium hover:border-pivao-gold">
+              <i data-lucide="phone" class="w-5 h-5"></i>
+              Velkoobchod & spolupráce
+            </a>
+          </div>
+        </div>
+        <div class="aspect-[4/3] rounded-2xl border border-slate-200 bg-white shadow-soft grid place-items-center text-slate-400">
+          Produktové foto / koláž merchu (doplň)
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section id="newsletter" class="py-16 lg:py-20 bg-white">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-black tracking-tight">Zůstaň ve spojení</h2>
+      <p class="mt-2 text-slate-600">Nech nám e‑mail a pošleme ti novinky o pivovarech, akcích a merchu.</p>
+      <form class="mt-6 grid sm:grid-cols-[1fr_auto] gap-3 max-w-xl mx-auto">
+        <input type="email" required placeholder="tvůj@email.cz" class="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-pivao-gold">
+        <button class="rounded-xl bg-pivao-gold text-white px-6 py-3 font-medium shadow-soft hover:opacity-95">Odebírat</button>
+      </form>
+      <p class="mt-2 text-xs text-slate-500">Kliknutím souhlasíš se zpracováním e‑mailu pro zasílání novinek.</p>
+    </div>
+  </section>
+
+  <!-- Kontakt / Footer -->
+  <footer id="kontakt" class="border-t border-slate-200 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 grid md:grid-cols-4 gap-8">
+      <div>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-2xl bg-pivao-gold grid place-items-center text-white font-extrabold">P</div>
+          <div class="font-black text-xl">PIVAO.cz</div>
+        </div>
+        <p class="mt-3 text-sm text-slate-600">Součást AO ekosystému. Spojujeme české pivo, akce a merch.</p>
+      </div>
+      <div>
+        <div class="font-bold">Navigace</div>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li><a href="#proc" class="hover:text-pivao-gold">Proč PIVAO</a></li>
+          <li><a href="#pivovary" class="hover:text-pivao-gold">Pivovary</a></li>
+          <li><a href="#akce" class="hover:text-pivao-gold">Festivaly & akce</a></li>
+          <li><a href="#merch" class="hover:text-pivao-gold">Merch</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="font-bold">AO projekty</div>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li><a href="#" class="hover:text-pivao-gold">Reklamas.cz</a></li>
+          <li><a href="#" class="hover:text-pivao-gold">StartAO.cz</a></li>
+          <li><a href="#" class="hover:text-pivao-gold">DomenAO.cz</a></li>
+          <li><a href="#" class="hover:text-pivao-gold">AutAO.cz</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="font-bold">Kontakt</div>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i> hello@pivao.cz</li>
+          <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> +420 000 000 000</li>
+          <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4"></i> Uherské Hradiště • Zlínský kraj</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-slate-200 py-6 text-center text-sm text-slate-500">
+      © <span id="year"></span> PIVAO.cz • Všechna práva vyhrazena.
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Lucide icons
+    lucide.createIcons();
+
+    // Mobile menu logic
+    const body = document.body;
+    const menu = document.getElementById('mobileMenu');
+    const openBtn = document.getElementById('hamburgerBtn');
+    const closeBtn = document.getElementById('closeMenuBtn');
+
+    function openMenu() {
+      menu.classList.remove('hidden');
+      body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      menu.classList.add('hidden');
+      body.style.overflow = '';
+    }
+
+    openBtn?.addEventListener('click', openMenu);
+    closeBtn?.addEventListener('click', closeMenu);
+
+    // Close on any link click inside mobile menu
+    menu.querySelectorAll('[data-close]').forEach(a => a.addEventListener('click', closeMenu));
+
+    // Close on Escape
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+
+    // Sticky year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
